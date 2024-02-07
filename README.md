@@ -1,7 +1,7 @@
 # Ad-DL-Midterm-Project
 
 
-Our project includes three Python (.py) files, each containing model functions designed for neural networks with 3, 6, and 12 layers respectively.
+Our project includes four Python (.py) files, each containing model functions designed for neural networks with 3, 6, and 12 layers respectively and utils.py for the fashion mnist label names.
 
 Additionally, I provide four Jupyter Notebook (.ipynb) files to facilitate your work. 
 
