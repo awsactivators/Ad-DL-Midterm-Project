@@ -42,7 +42,7 @@ def compile_and_train(
     model.compile(
         loss="sparse_categorical_crossentropy",
         optimizer=optimizer,
-        metrics=["accuracy", "mae"],
+        metrics=["accuracy"],
     )
     history = model.fit(
         X_train,
@@ -53,17 +53,17 @@ def compile_and_train(
     )
 
     # Evaluate the model on the test set
-    test_loss, test_acc, test_mae = model.evaluate(X_test, y_test)
-    print(f"Test loss: {test_loss}, Test accuracy: {test_acc}, Test MAE: {test_mae}")
+    test_loss, test_acc = model.evaluate(X_test, y_test)
+    print(f"Test loss: {test_loss}, Test accuracy: {test_acc}")
 
     return history
 
 
 def evaluate_model(model, X_test, y_test):
-    test_loss, test_acc, test_mae = model.evaluate(X_test, y_test)
-    print(f"Test loss: {test_loss}, Test accuracy: {test_acc}, Test MAE: {test_mae}")
+    test_loss, test_acc = model.evaluate(X_test, y_test)
+    print(f"Test loss: {test_loss}, Test accuracy: {test_acc}")
 
-    return test_loss, test_acc, test_mae
+    return test_loss, test_acc
 
 
 def reshape_data(X_train, X_test):
