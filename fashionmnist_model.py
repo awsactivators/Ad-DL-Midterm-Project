@@ -74,7 +74,7 @@ class FMM:
         X_train,
         y_train,
         optimizer,
-        batch_size=100,
+        batch_size=64,
         epochs=30,
         validation_split=0.2,
     ):
