@@ -27,12 +27,19 @@ class FMM:
 
     @staticmethod
     def get_model():
+        """
+            Retrieves a pre-defined model for training.
+
+            Returns:
+            model: The pre-defined model for training.
+        """
+
         model = FMM.create_model_v1()
         print(f"Training with model {model.name} ...")
         return model
 
     @staticmethod
-    def create_model_v1() -> tf.keras.Sequential:
+    def create_model_v1():
         """
         Function to create a simple neural network model (version 1) using TensorFlow Keras.
 
@@ -59,7 +66,29 @@ class FMM:
         )
 
     @staticmethod
-    def create_model_v2() -> tf.keras.Sequential:
+    def create_model_v2():
+        """
+            Function to create a neural network model architecture (version 2).
+
+            Returns:
+            tf.keras.Sequential: A Keras sequential model object representing the neural network.
+
+            Architecture:
+            - Input layer: Flatten layer to flatten the input image tensor to a 1D tensor.
+            - Hidden layer 1: Dense layer with 128 units and ReLU activation function.
+            - Batch Normalization layer to normalize the activations of the previous layer.
+            - Dropout layer with a dropout rate of 0.3 to prevent overfitting.
+            - Hidden layer 2: Dense layer with 64 units and ReLU activation function.
+            - Batch Normalization layer to normalize the activations of the previous layer.
+            - Dropout layer with a dropout rate of 0.3 to prevent overfitting.
+            - Hidden layer 3: Dense layer with 32 units and ReLU activation function.
+            - Batch Normalization layer to normalize the activations of the previous layer.
+            - Dropout layer with a dropout rate of 0.3 to prevent overfitting.
+            - Output layer: Dense layer with 10 units and softmax activation function for multiclass classification.
+
+            The model is named "model_v2".
+        """
+            
         return tf.keras.Sequential(
             [
                 tf.keras.layers.Flatten(input_shape=(28, 28)),
@@ -78,7 +107,34 @@ class FMM:
         )
 
     @staticmethod
-    def create_model_v3() -> tf.keras.Sequential:
+    def create_model_v3():
+        """
+            Function to create a convolutional neural network model (version 3) with the following architecture:
+
+            Input:
+            - Input shape: (28, 28, 1)
+
+            Architecture:
+            - Convolutional layer with 32 filters, kernel size (3, 3), 'same' padding, and ReLU activation
+            - Batch normalization layer
+            - Dropout layer with a dropout rate of 0.25
+            - Max pooling layer with pool size (2, 2)
+            - Convolutional layer with 64 filters, kernel size (3, 3), 'same' padding, and ReLU activation
+            - Batch normalization layer
+            - Dropout layer with a dropout rate of 0.25
+            - Max pooling layer with pool size (2, 2)
+            - Flatten layer
+            - Fully connected (Dense) layer with 128 units and ReLU activation
+            - Batch normalization layer
+            - Dropout layer with a dropout rate of 0.25
+            - Fully connected (Dense) layer with 10 units and softmax activation
+
+            Returns:
+            - A Keras Sequential model with the specified architecture.
+
+            The model is named "model_v3".
+        """
+            
         return tf.keras.Sequential(
             [
                 tf.keras.layers.Conv2D(
