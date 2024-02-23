@@ -10,11 +10,12 @@ class FMM:
         """
         Function to load the Fashion MNIST dataset.
 
-        Returns:
-        X_train (numpy array): Training images.
-        y_train (numpy array): Training labels.
-        X_test (numpy array): Test images.
-        y_test (numpy array): Test labels.
+        Returns
+        - tuple: A tuple containing four numpy arrays::
+            - X_train (numpy array): Training images.
+            - y_train (numpy array): Training labels.
+            - X_test (numpy array): Test images.
+            - y_test (numpy array): Test labels.
         """
 
         fashion_mnist = tf.keras.datasets.fashion_mnist
@@ -31,7 +32,22 @@ class FMM:
         return model
 
     @staticmethod
-    def create_model_v1():
+    def create_model_v1() -> tf.keras.Sequential:
+        """
+        Function to create a simple neural network model (version 1) using TensorFlow Keras.
+
+        Returns:
+        - A TensorFlow Keras Sequential model object representing the neural network.
+
+        This model consists of the following layers:
+        - Flatten: Flattens the input images from 2D arrays (28x28 pixels) to 1D arrays (784 pixels).
+        - Dense: Fully connected layer with 256 neurons, using ReLU activation function.
+        - Dense: Fully connected layer with 64 neurons, using ReLU activation function.
+        - Dense: Output layer with 10 neurons (one for each class in the dataset), using softmax activation function.
+
+        The model is named "model_v1".
+        """
+
         return tf.keras.Sequential(
             [
                 tf.keras.layers.Flatten(input_shape=(28, 28)),
@@ -43,7 +59,7 @@ class FMM:
         )
 
     @staticmethod
-    def create_model_v2():
+    def create_model_v2() -> tf.keras.Sequential:
         return tf.keras.Sequential(
             [
                 tf.keras.layers.Flatten(input_shape=(28, 28)),
@@ -62,7 +78,7 @@ class FMM:
         )
 
     @staticmethod
-    def create_model_v3():
+    def create_model_v3() -> tf.keras.Sequential:
         return tf.keras.Sequential(
             [
                 tf.keras.layers.Conv2D(
@@ -89,7 +105,22 @@ class FMM:
         )
 
     @staticmethod
-    def reshape_data(X_train, X_test):
+    def reshape_data(
+        X_train: np.ndarray, X_test: np.ndarray
+    ) -> Tuple[np.ndarray, np.ndarray]:
+        """
+        Reshape the input data by scaling it to the range [0, 1].
+
+        Parameters:
+        - X_train (numpy.ndarray): The training data.
+        - X_test (numpy.ndarray): The testing data.
+
+        Returns:
+        - tuple: A tuple containing two numpy arrays:
+            - X_train_scaled: The scaled training data.
+            - X_test_scaled: The scaled testing data.
+        """
+
         return X_train / 255.0, X_test / 255.0
 
     @staticmethod
