@@ -1,0 +1,6 @@
+tensorflow
+keras
+numpy
+matplotlib
+ray[tune]
+scikit-learn
