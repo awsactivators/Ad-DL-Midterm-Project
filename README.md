@@ -1,8 +1,8 @@
-
 # Advanced Deep Learning Project: Optimizer Comparison and Analysis
 
 ## Project Overview
 This project delves into three state-of-the-art optimizer algorithms: Adagrad, Adam, and RMSprop. By applying these optimizers to an Artificial Neural Network (ANN) model trained on the Fashion MNIST dataset, we aim to uncover the intricacies, advantages, and drawbacks of each method.
+
 
 ## Dataset
 The Fashion MNIST dataset comprises 70,000 grayscale images of 10 fashion categories, split into a training set of 60,000 images and a test set of 10,000 images.
